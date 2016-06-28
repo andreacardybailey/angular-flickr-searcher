@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="flickrSearcher" ng-controller="searcherCtrl as vm">
+<head>
+  <meta charset="UTF-8">
+  <title>Flickr Searcher</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>Flickr Searcher</h1>
+  <form name="vm.tagForm" ng-submit="vm.submit()">
+    <input type="text" placeholder="Enter a tag to search for" ng-model="vm.tag" class="tag" required>
+    <input type="submit" value="Submit">
+  </form>
+  <p class="result-text">{{vm.searchTag}}</p>
+  <section class="results">
+    <div class="image-container" ng-repeat="result in vm.results">
+      <img ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}/{{result.id}}_{{result.secret}}.jpg" alt="{{vm.tag}}">
+    </div>
+  </section>
+</body>
+</html>
