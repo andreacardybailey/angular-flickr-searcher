@@ -3,7 +3,7 @@ flickrModule.config(function($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
-flickrModule.controller('searcherCtrl', function($scope, $http, $q, $timeout) {
+flickrModule.controller('searcherCtrl', function($http, $q, $timeout) {
   var vm = this;
   vm.results = [];
 
